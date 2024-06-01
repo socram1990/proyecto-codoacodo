@@ -1,85 +1,158 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CAC-MOVIES</title>
-   
-    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/estilos_bootstrap.css">
     <script src="https://kit.fontawesome.com/f7fb471b65.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header class="header" >
-        <nav >
-            <a href="#">
+        <nav class="navbar navbar-expand-lg navbar-dark bgBordo">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
                 <i class="fas fa-film" aria-hidden="true"></i>
                 <span>CAC-Movies</span>
-            </a>
-            <ul >
-                <li ><a  href="#tendencias">Tendencias</a></li>
-                <li ><a  href="./pages/registrarse.html">Registrarse</a></li>
-                <li ><a  href="./pages/iniciosesion.html">Iniciar Sesión</a></li>
-            </ul>
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 justify-content-end">
+                  <li class="nav-item">
+                    <a class="nav-link active fs-4" aria-current="page" href="./index.html#tendencias">Tendencias</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active fs-4" href="./pages/registrarse.html">Registrarse</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active fs-4" href="./pages/iniciosecion.html">Iniciar Sesión</a>
+                  </li>
+                </ul>
+                </div>
+            </div>
         </nav>
     </header>
+
     <main id="main" >
+       
         <section class="sectionTitulos">
             <div class="contenedorTitulos">
                 <h1 >Películas y series ilimitadas <br> en un solo lugar</h1>
-                <h2 >Disfruta donde quieras. <br> Cancela en cualquier momento.</h2>
+                <p >Disfruta donde quieras. <br> Cancela en cualquier momento.</p>
                 <a  href="./pages/registrarse.html">Registrate</a>
             </div>
-           
-        </section>
-        <section >
-            <h2 >¿Qué estas buscando?</h2>
-            <form >
-                <input type="text" placeholder="Buscar..." id="buscar" name="buscar">
-                <input type="submit" value="Buscar">
-            </form>
-           
+           </section>
 
-        </section>
-        <hr>
-        <section id="tendencias" class="peliculasTendencias">
-            <h2>Las tendencias de hoy</h2>
-            <button >Anterior</button>  
-            <button >Siguiente</button>
-            <div class="galeriaTendencias">
-                <div> 
-                    <a href="./pages/detalle.html"><img  src="./assets/img/peli_1.jpg" alt="The Beekeeper" loading="lazy"></a>
-                </div>
-                <div>
-                    <a href="./pages/detalle.html"><img  src="./assets/img/peli_2.jpg" alt="Badland Hunters" loading="lazy"></a>
-                </div>
-                <div>
-                    <a href="./pages/detalle.html"><img  src="./assets/img/peli_3.jpg" alt="The Marvels" loading="lazy"></a>
-                </div>
-                <div>
-                    <a href="./pages/detalle.html"><img  src="./assets/img/peli_4.jpg" alt="Wonka" loading="lazy"></a>
-                </div>
-                <div>
-                    <a href="./pages/detalle.html"><img  src="./assets/img/peli_5.jpg" alt="Aquaman and the Lost Kingdom" loading="lazy"></a>
-                </div>
-                <div>
-                    <a href="./pages/detalle.html"><img  src="./assets/img/peli_6.jpg" alt="Migration" loading="lazy"></a>
-                </div>
-                <div>
-                    <a href="./pages/detalle.html"><img  src="./assets/img/peli_7.jpg" alt="Sixty Minutes" loading="lazy"></a>
-                </div>
-                <div>
-                    <a href="./pages/detalle.html"><img  src="./assets/img/peli_8.jpg" alt="Wish" loading="lazy"></a>
-                </div>
-             
+           <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand">¿Qué estas buscando?</a>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="buscar" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">buscar</button>
+              </form>
             </div>
-            <button >Anterior</button>  
-            <button >Siguiente</button>
-        </section>
+          </nav>
+
+        
+        <div class="container">
+            <h2 class="text-center pt-5 mb-5 fs-1">Tendencias de hoy!!!</h2>
+            
+            <button id="button">CARGAR PELICULAS</button>
+            <section id="peliculasSection" class="row">
+             </section>
+        </div>
+        <script>
+            // funcion que crea las tarjetas de peliculas
+               // Función para crear una tarjeta (card) de película
+               function crearTarjetaPelicula(pelicula) {
+                // Crear elementos de la tarjeta de película
+                // creamos la columna de bootstrap 
+                const card = document.createElement('div');
+                card.classList.add('col-12','col-md-3', 'pelicula-card');
+                // estamos creando la tarjeta
+                const cardInner = document.createElement('div');
+                cardInner.classList.add('card');
+                // creo la imagen de la tarjeta
+                const cardImg = document.createElement('img');
+                cardImg.classList.add('card-img-top');
+    
+                cardImg.src = `https://image.tmdb.org/t/p/w500/${pelicula.poster_path}`;
+                cardImg.alt = pelicula.title;
+                cardImg.loading = 'lazy';
+               
+    
+                // creamos el cuerpo de la tarjeta
+                const cardBody = document.createElement('div');
+                cardBody.classList.add('card-body');
+    
+                const cardTitle = document.createElement('h5');
+                cardTitle.classList.add('card-title');
+                cardTitle.textContent = pelicula.title;
+    
+                 // Añadir elementos a la tarjeta de película
+                cardBody.appendChild(cardTitle);
+                cardInner.appendChild(cardImg);
+                cardInner.appendChild(cardBody);
+                // agrego la tarejta a la columna de bootstrap
+                card.appendChild(cardInner);
+    
+                return card;
+            }
+            // datos de la api
+            const API_SERVER = 'https://api.themoviedb.org/3';
+            const options = {
+                method: 'GET', // Método de la petición (GET)
+                headers: {
+                    accept: 'application/json', // Tipo de respuesta esperada (JSON)
+                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYTJjYTAwZDYxZWIzOTEyYjZlNzc4MDA4YWQ3ZmNjOCIsInN1YiI6IjYyODJmNmYwMTQ5NTY1MDA2NmI1NjlhYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4MJSPDJhhpbHHJyNYBtH_uCZh4o0e3xGhZpcBIDy-Y8'
+                    
+                }
+            };
+            // Función para cargar películas en la seccion del index
+            const cargarPeliculas = async (page = 1) => {
+                try{
+                    // Realizamos una petición fetch a la API para obtener las películas populares
+                    const response = await fetch(`${API_SERVER}/movie/popular?page=${page}`, options);
+                    console.log(response);
+                    const data = await response.json(); // Convertimos la respuesta a JSON
+                    console.log(data);
+                    const movies = data.results;// Extraemos las películas de la respuesta, array de objetos de peliculas
+                    console.log(movies);
+                    const peliculasSection = document.getElementById('peliculasSection');
+                    peliculasSection.innerHTML = '';// Limpiamos el contenido previo del contenedor
+                    movies.forEach(movie => {
+                        const peliculaCard = crearTarjetaPelicula(movie);// Iteramos sobre las películas
+                        peliculasSection.appendChild(peliculaCard);// Añadimos la tarjeta de película al contenedor
+                    });// Iteramos sobre las películas
+                }catch(error){
+                    console.error(error);
+                }
+             
+    
+            };
+          
+    
+    
+             // Llamar a la función para agregar las tarjetas de películas cuando el DOM esté cargado
+             // document.addEventListener("DOMContentLoaded", agregarTarjetasPeliculas);
+             // agregarTarjetasPeliculas();
+            document.addEventListener("DOMContentLoaded", () => { cargarPeliculas(1)});
+            // cargarPeliculas.addEventListener('click', cargarPeliculas);
+
+
+        </script>
+
+    </body>
+
         <hr>
+        
         <section class="peliculasAclamadas" >
-            <h2>Las más aclamadas</h2>
+            <h2 class="text-center pt-5 mb-5 fs-1">Las mas aclamadas!!!</h2>
              <div class="galeriaAclamadas">
                 <div >
                     <img  src="./assets/img/aclamada_1.jpg" alt="aclamada_1" loading="lazy">
@@ -121,20 +194,21 @@
         </section>
 
     </main>
-    <footer class="footer">
-        <nav>
-            <ul >
-                <li ><a  href="">Términos y condiciones</a></li>
-                <li ><a  href="">Preguntas frecuentes</a></li>
-                <li ><a  href="">Ayuda</a></li>
-                <li ><a  href="">Administrador Peliculas</a></li>
+        
+
+   <footer class="container-fluid mt-5 p- bgBordo">
+        <nav class="navegacion">
+            <ul class="row sinlista">
+                <li class="col-12 col-md-3 text-center"><a class="text-white fs-4 text-decoration-none" href="">Términos y condiciones</a></li>
+                <li class="col-12 col-md-3 text-center"><a class="text-white fs-4 text-decoration-none" href="">Preguntas frecuentes</a></li>
+                <li class="col-12 col-md-3 text-center"><a class="text-white fs-4 text-decoration-none" href="">Ayuda</a></li>
+                <li class="col-12 col-md-3 text-center"><a class="text-white fs-4 text-decoration-none" administradorPeliculas" href="">Administrador Peliculas</a></li>
             </ul>
         </nav>
-        <a href="#main">
+        <a href="#main" class="position-fixed botonflecha">
             <img src="./assets/img/flecha-hacia-arriba.png" alt="ir arriba flecha">
-
         </a>
     </footer>
-   
+   <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

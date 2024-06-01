@@ -1,87 +1,69 @@
-<!-- esto es un comentario  -->
-<!DOCTYPE html> <!--indica que todo el documento esta en html5--> 
+<!DOCTYPE html>
 <html lang="es">
-    <!--etiqueta de configuraciones del navegador-->
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--es el titulo de la pagina donde estamos parados-->
-        <title>Registrarse | CACFLIX - Catalogo de peliculas</title>
-        <!--el icono que represeta al sitio web y se ve en la pestaña-->
-        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-        <!--libreria de iconos de fontawesome-->
-        <script src="https://kit.fontawesome.com/cbbd236219.js" crossorigin="anonymous"></script>
-         <!--link externo de estilos de css-->
-         <link rel="stylesheet" href="../css/estilos.css">
-    </head>
-    <body>
-        <header id="header" class="header">
-          
-            <nav>
-                <a href="../index.html">  
-                    <!--<img src="../assets/img/logo_640.jpg" alt="Logo de CACFLIX" width="100" loading="lazy"> --><!--etiqueta abierta multimedia, imagen-->
-                    <i class="fa-solid fa-film"></i>
-                </a>
-                <!--lista desordenada ul/ lista ordenada ol-->
-                <ul>
-                    <li>
-                        <!-- lo hacemos luego cuando este el main-->
-                        <a href="">Tendencias</a>
-                    </li>
-                    <li>
-                        <a href="#">Registrarse</a>
-                    </li>
-                    <li>
-                        <a href="./iniciosesion.html">Iniciar Sesión</a>
-                    </li>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión | CAC-MOVIES</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilos_bootstrap.css">
+    <script src="https://kit.fontawesome.com/f7fb471b65.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+</head>
+<body class="bodyRegistrarse">
+    <header class="headerRegistrarse">
+       
+    </header>
+    <main id="main" class="container">
+        <section>
+            <div class="row-5">
+                <form action="" method="post" class="formuregis">
+                    <h2 class="tituloRegistrarse">Registrarse</h2>
+                    <div class="form-group">
+                    <label>NOMBRE</label>
+                    <input type="text" placeholder="ingresa su nombre" maxlength="20" id="nombre" name="nombre" class="form-control">
+                    </div>
 
-                </ul>
-                
-            </nav>
-        </header>
-        <main>
-           <section id="registro">
-             <h1>Registro</h1>
-             <form action="valida.php" method="post">
-                <div>
-                    
-                    <input type="text" name="nombre" id="nombre" required> 
-                </div>
-                <div>
-                    <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
-                </div>
-                <div>
-                    <input type="email" name="email" id="email" placeholder="Email" required>
-                </div>
-                <div>
-                    <input type="password" name="password" id="password" placeholder="Contraseña" required>
-                </div>
-                <div>
-                    <label for="nacimiento">Fecha de Nacimiento:</label>
-                    <input type="date" name="nacimiento" id="nacimiento" required>
-                </div>
-                <div>
-                    <select name="pais" id="pais" size="4">
-                        <option value="AR">Argentina</option>
-                        <option value="PE" selected>Peru</option>
-                        <option value="MX">Mexico</option>
-                        <option value="CL">Chile</option>
+                    <div class="form-group">
+                    <label>APELLIDO</label>
+                    <input type="text" placeholder="ingrese tu apellido" maxlength="20" id="apellido" name="apellido" class="form-control">
+                    </div>
+
+                    <div>
+                    <label>E-MAIL</label>
+                    <input type="email" placeholder="ingresa tu email" maxlength="50" id="email" name="email" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                    <label>CONTRASEÑA</label>
+                    <input type="password" placeholder="ingresa tu contraseña" maxlength="20" id="Password" name="Password" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                    <label>PAIS</label>
+                    <select name="PAIS" id="PAIS">
+                        <option value="ARGENTINA">ARGENTINA</option>
+                        <option value="BOLIVIA">BOLIVIA</option>
+                        <option value="BRASIL">BRASIL</option>
+                        <option value="CHILE">CHILE</option>
+                        <option value="COLOMBIA">COLOMBIA</option>
+                        <option value="ECUADOR">ECUADOR</option>
+                        <option value="PARAGUAY">PARAGUAY</option>
+                        <option value="PERU">PERU</option>
+                        <option value="URUGUAY">URUGUAY</option>
+                        <option value="VENEZELA">VENEZUELA</option>
                     </select>
-                </div>
-                <div>
-                    <label for="termino">Acepta terminos y condiciones</label>
-                    <input type="checkbox" name="termino" id="termino">
-                </div>
-                <div>
-                    <input type="reset" value="Limpiar Campos">
-                    <input type="submit" value="Registrarse">
-                </div>
-            </form>
-         </section>
-        </main>
-        <footer>
-            <p id="idParrafoFooter" class="parrafo">Pie de pagina del footer de registrarse</p>
-        </footer>
-        
-    </body>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn bgBordo btn-block">registrarse</button>
+                    </div>
+                    
+                </form>
+                
+            </div>
+    </main>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
 </html>

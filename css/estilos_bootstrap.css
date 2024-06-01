@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*configuracion de variables*/
+:root{
+    --main-color: #f3f3f3;
+    --secondary-color: #161516;
+    --third-color: #850f0f;
+    --third-color-t: #840404bc;
+    --grosor-negrita :bold;
+}
+/* estilos main*/
+body{
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+}
+
+.bgBordo{
+    background-color: var(--third-color);
+}
+/*animaciones */
+h2{
+    display: inline-block;
+    position: relative;
+    color: #850f0f;
+}
+h2::after,h2::before {
+    content: "";
+    position: absolute;
+    width:120px;
+    height: 3px;
+    background-color:currentColor;
+    top: 0.6em;
+    transform: scale(0);
+    transition: all 0.2s ease-in;
+}
+h2:hover::before, h2:hover::after{
+    transform: scale(1);
+}
+h2::before{
+    left: -140px;
+}
+h2::after{
+    right:-140px ;
+}
+ 
+header, footer {
+    height: 15vh;
+    nav{
+        height: 100%;
+    }
+}
+@media screen and (max-width:575px){
+    header{
+        height: initial;
+        nav{
+            height: 100%;
+        }
+    }
+}
+
+/*estilos del detalle*/
+
+.sinlista{
+    list-style: none;
+}
+
+.botonflecha{
+    bottom: 20px;
+    right: 20px;
+}
+
+/*estilos del registro*/
+
+.formusecion, .formuregis{
+    max-width: 25em;
+    padding: 1.3em;
+    margin: 0 auto;
+    background-color: rgbas(120, 119, 123, 0.3);
+    font-weight: bold;
+    border-radius: 0.5em;
+    box-shadow: inset 1px 1px 22px 4px rgba(0, 0, 0, 0.85);
+}
